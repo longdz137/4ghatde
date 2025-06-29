@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPN 4G Tốc Độ Cao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #23234e, #1a1a40);
+      background-size: 600% 600%;
+      animation: bgmove 15s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+    @keyframes bgmove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(to right, #00e5ff, #3f51b5);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #ccc;
+      margin-bottom: 40px;
+      font-size: 1.3rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      width: 100%;
+      max-width: 800px;
+    }
+    .app-card {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .app-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.25);
+    }
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .app-info {
+      flex: 1;
+      text-align: left;
+    }
+    .app-info h3 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .app-info p {
+      margin: 0 0 16px;
+      color: #ccc;
+    }
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #00c853, #64dd17);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #00e676, #76ff03);
+    }
+    .btn.secondary {
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
+    }
+    .btn.secondary:hover {
+      background: linear-gradient(135deg, #2196f3, #64b5f6);
+    }
+    .btn.guide {
+      background: linear-gradient(135deg, #ff9800, #ffc107);
+      margin-top: 60px;
+    }
+    .btn.guide:hover {
+      background: linear-gradient(135deg, #ffa726, #ffd54f);
+    }
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid white;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      display: inline-block;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    button:disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+    @media (max-width: 600px) {
+      .app-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .app-info {
+        text-align: left;
+        width: 100%;
+      }
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+    /* Popup */
+    #popup-success {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(40, 250, 120, 0.95);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VPN 4G TỐC ĐỘ CAO</h1>
+    <p>Kết nối an toàn - Vượt mọi rào cản - 4G, 5G Không giới hạn</p>
+
+    <div class="grid">
+      <div class="app-card">
+        <img src="https://i.ibb.co/Wpx1nJTv/logo.jpg" class="app-icon" alt="VPN App Logo" />
+        <div class="app-info">
+          <h3>VPN 4G cho Android</h3>
+          <p>Tương thích mọi thiết bị Android. Cài đặt dễ dàng.</p>
+          <div class="btn-group">
+            <button class="btn" onclick="handleDownload(this, 'https://4ghatde.net/download/VPN4G.apk')">📦 Tải APK</button>
+            <button class="btn secondary" onclick="handleDownload(this, 'https://play.google.com/store/apps/details?id=com.azzphucdeveloper.ossh3v2')">🛒 Tải từ CH Play</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <img src="https://i.ibb.co/Wpx1nJTv/logo.jpg" class="app-icon" alt="VPN App Logo" />
+        <div class="app-info">
+          <h3>VPN 4G cho iOS</h3>
+          <p>Cài đặt Testflight trước khi dùng. An toàn và tiện lợi.</p>
+          <button class="btn secondary" onclick="handleDownload(this, 'https://testflight.apple.com/join/k2nKSFbr')">🍏 Tải iOS</button>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://hdsd.4ghatde.net/" class="btn guide">📘 Xem Hướng Dẫn Sử Dụng</a>
+
+    <footer>
+      © 2025 VPN 4G Pro. Bảo mật tuyệt đối.Made with ❤️ by Sky Luxury Media.
+    </footer>
+  </div>
+
+  <!-- Popup thông báo -->
+  <div id="popup-success">✅ Tải thành công!</div>
+
+  <!-- Script xử lý -->
+  <script>
+    function handleDownload(button, url) {
+      button.disabled = true;
+      button.innerHTML = `<span class="spinner"></span> Đang tải...`;
+      setTimeout(() => {
+        showPopup();
+        window.location.href = url;
+      }, 1000);
+    }
+
+    function showPopup() {
+      const popup = document.getElementById("popup-success");
+      popup.style.opacity = "1";
+      popup.style.pointerEvents = "auto";
+      setTimeout(() => {
+        popup.style.opacity = "0";
+        popup.style.pointerEvents = "none";
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
