@@ -1,587 +1,586 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gói 4G Viettel - Đẳng cấp tốc độ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Gói 4G VPN • Có nền & Không nền • Viettel</title>
+    <!-- Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary: #000000;
-            --secondary: #E4E4E4;
-            --accent: #00A3E0;
-            --text: #FFFFFF;
-            --text-dark: #333333;
-            --gray: #222222;
-            --light-gray: #444444;
-        }
-        
-        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-        
+
         body {
-            background-color: var(--primary);
-            color: var(--text);
-            line-height: 1.6;
-            padding-top: 60px;
+            background: #0f1a24;
+            background-image: radial-gradient(circle at 20% 30%, #1b4a4a20 0%, transparent 40%),
+                              radial-gradient(circle at 80% 70%, #1e555520 0%, transparent 40%);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #edf7f2;
         }
-        
-        /* Thanh menu tối giản */
-        .navbar {
-            background: var(--primary);
-            height: 60px;
-            position: fixed;
+
+        .catalog {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* header ấn tượng */
+        .header-fancy {
+            background: rgba(0, 30, 30, 0.6);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid #36ffb080;
+            border-radius: 80px;
+            padding: 1.2rem 2.2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 30px 40px -25px black;
+        }
+
+        .brand-block {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .viettel-badge-xl {
+            background: linear-gradient(165deg, #c4121c, #a50b14);
+            padding: 10px 32px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #ffaeae;
+            box-shadow: 0 20px 30px -10px #9e0f17;
+        }
+
+        .tag-switch {
+            display: flex;
+            background: #08231ecc;
+            border-radius: 40px;
+            border: 1px solid #46ffb3;
+        }
+
+        .tag-switch span {
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .tag-switch .active-bg {
+            background: #1dffb1;
+            color: #002b1a;
+            box-shadow: 0 0 15px #62ffbb;
+        }
+
+        .hotline-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #101f1f;
+            border-radius: 40px;
+            padding: 10px 26px;
+            border: 1px solid #27ffb0;
+        }
+
+        /* filter tabs */
+        .filter-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            background: #1d2f35;
+            border-radius: 60px;
+            padding: 12px 30px;
+            font-weight: 500;
+            color: #d0f5ea;
+            border: 1px solid #357560;
+            backdrop-filter: blur(10px);
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-chip i {
+            color: #1effb0;
+        }
+
+        .filter-chip.active {
+            background: #1a7b5e;
+            border-color: #b2ffe2;
+            color: white;
+        }
+
+        /* section label */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 40px 0 20px;
+        }
+
+        .section-label h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: rgba(0, 255, 170, 0.1);
+            padding: 8px 30px;
+            border-radius: 60px;
+            border-left: 6px solid #64ffb0;
+        }
+
+        .badge-new {
+            background: #ffe484;
+            color: #002814;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-weight: 700;
+        }
+
+        /* GRID CARD */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 30px;
+        }
+
+        /* base card */
+        .plan-card {
+            background: rgba(20, 40, 45, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid #3effb040;
+            border-radius: 40px;
+            padding: 26px 22px 22px;
+            transition: 0.2s;
+            box-shadow: 0 30px 40px -30px black;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card::before {
+            content: "";
+            position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: center;
-        }
-        
-        .nav-container {
             width: 100%;
-            max-width: 1200px;
-            padding: 0 20px;
+            height: 8px;
+            background: linear-gradient(90deg, #00ffb0, #e5ffb0);
+            opacity: 0.6;
+        }
+
+        .plan-card.bg-filled {
+            background: #183b3bdd; /* có nền đậm hơn một chút */
+            border: 1px solid #ffe066;
+            box-shadow: 0 0 25px #ffe06630;
+        }
+
+        .plan-card.bg-filled::before {
+            background: linear-gradient(90deg, #ffe066, #ffb47b);
+            height: 8px;
+        }
+
+        .card-badge-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 18px;
         }
-        
-        .logo {
-            height: 24px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.2s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .btn {
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: var(--text);
-            border: 1px solid var(--accent);
-        }
-        
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--accent);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 100px 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-        }
-        
-        .hero .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--text), var(--secondary));
+
+        .price-lg {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(to right, #fff6b3, #adffd7);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
-        
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            margin-bottom: 30px;
-        }
-        
-        /* Packages Section */
-        .packages {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--text), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .section-title p {
-            color: var(--secondary);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .package-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .package-card {
-            background: linear-gradient(145deg, var(--gray), var(--primary));
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .package-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .package-header {
-            padding: 25px;
-            background: var(--light-gray);
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .package-name {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .package-price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 15px 0;
-        }
-        
-        .package-price span {
+
+        .price-lg small {
             font-size: 1rem;
             font-weight: 400;
-            opacity: 0.8;
+            color: #bce6d5;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
         }
-        
-        .package-body {
-            padding: 25px;
-        }
-        
-        .package-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .package-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        .nontag, .basetag {
+            background: #002e24;
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid;
             display: flex;
             align-items: center;
+            gap: 4px;
         }
-        
-        .package-features li i {
-            color: var(--accent);
-            margin-right: 10px;
+
+        .nontag {
+            border-color: #1effb0;
+            color: #cdffdd;
         }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: var(--gray);
+
+        .basetag {
+            border-color: #ffc107;
+            color: #fff1b5;
         }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+
+        .plan-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 8px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .feature-card {
-            text-align: center;
-            padding: 30px 20px;
+
+        .plan-name span {
+            background: #1e4d3d;
+            border-radius: 60px;
+            padding: 5px 18px;
+            font-size: 0.85rem;
+            color: #b5ffdd;
         }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 163, 224, 0.1);
-            border-radius: 50%;
+
+        .feature-list-compact {
+            list-style: none;
+            margin: 16px 0 20px;
+            flex: 1;
+        }
+
+        .feature-list-compact li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 6px;
+            border-bottom: 1px dashed #26ffb030;
+            font-size: 0.95rem;
+        }
+
+        .feature-list-compact i {
+            width: 24px;
+            color: #55ffb3;
+        }
+
+        .data-highlight {
+            font-weight: 700;
+            background: linear-gradient(145deg, #c5ffcf, #9effd3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.3rem;
+            margin-left: 5px;
+        }
+
+        .btn-action {
+            background: linear-gradient(95deg, #00b058, #00dc8a);
+            border: none;
+            border-radius: 100px;
+            padding: 18px 16px;
+            color: #001e0e;
+            font-weight: 700;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--accent);
-            font-size: 1.5rem;
+            gap: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+            border: 1px solid #aaffdd;
+            box-shadow: 0 15px 30px -15px #00ffa2;
+            transition: 0.15s;
+            text-transform: uppercase;
         }
-        
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+
+        .btn-action i {
+            color: #001f0b;
         }
-        
-        .feature-card p {
-            color: var(--secondary);
-            font-size: 0.95rem;
+
+        .btn-action:hover {
+            background: linear-gradient(95deg, #00cc70, #2cffb0);
+            transform: scale(1.01);
+            box-shadow: 0 20px 30px -10px #69ffc0;
         }
-        
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(135deg, var(--accent), #0085b8);
-        }
-        
-        .cta h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--secondary);
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--gray);
-            padding: 60px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--secondary);
+
+        /* gói có nền đôi khi có thêm dòng note */
+        .base-note {
+            background: #e6b42220;
+            border-radius: 30px;
+            padding: 8px 16px;
             font-size: 0.85rem;
+            color: #ffe28f;
+            border: 1px solid #ffc10770;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .package-grid, .feature-grid {
-                grid-template-columns: 1fr;
-            }
+
+        .footer-message {
+            margin-top: 50px;
+            background: #0e2a27b3;
+            backdrop-filter: blur(8px);
+            border-radius: 70px;
+            padding: 1.4rem 2.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #3effb0;
         }
-        
-        @media (max-width: 480px) {
-            .nav-container {
-                flex-direction: column;
-                padding: 10px;
-            }
-            
-            .nav-links {
-                margin: 15px 0;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
+
+        .footer-message i {
+            color: #4effb8;
+            font-size: 1.8rem;
         }
     </style>
 </head>
 <body>
-    <!-- Thanh menu -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <img src="https://viettel.com.vn/uploads/images/logo.png" alt="Viettel" class="logo">
-            
-            <div class="nav-links">
-                <a href="#home">Trang chủ</a>
-                <a href="#packages">Gói cước</a>
-                <a href="#features">Tính năng</a>
-                <a href="#contact">Liên hệ</a>
-            </div>
-            
-            <a href="#register" class="btn btn-primary">Đăng ký</a>
-        </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Đẳng cấp tốc độ <span style="color: var(--accent)">4G Viettel</span></h1>
-            <p>Trải nghiệm mạng lưới 4G nhanh nhất Việt Nam với tốc độ tải xuống lên đến 150Mbps</p>
-            <a href="#packages" class="btn btn-primary">Khám phá ngay</a>
-        </div>
-    </section>
-    
-    <!-- Packages Section -->
-    <section class="packages" id="packages">
-        <div class="section-title">
-            <h2>Các gói cước 4G</h2>
-            <p>Lựa chọn gói cước phù hợp với nhu cầu của bạn</p>
-        </div>
-        
-        <div class="package-grid">
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-name">VIETTEL BASIC</h3>
-                    <div class="package-price">20.000đ<span>/tháng</span></div>
-                    <p>Gói cơ bản dành cho người dùng phổ thông</p>
+    <div class="catalog">
+        <!-- header bóng bẩy -->
+        <div class="header-fancy">
+            <div class="brand-block">
+                <div class="viettel-badge-xl">
+                    <i class="fas fa-sim-card"></i> VIETTEL
                 </div>
-                <div class="package-body">
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Dung lượng: 100GB</li>
-                        <li><i class="fas fa-check"></i> Hỗ Trợ Tối Đa: 1 Thiết Bị</li>
-                        <li><i class="fas fa-check"></i> Hỗ Trợ Sim: Viettel</li>
-                        <li><i class="fas fa-check"></i> Thời gian sử dụng: 1 tháng</li>
-                        <li><i class="fas fa-check"></i> Chú ý: Mua gói xong ib qua Zalo admin để được thêm vào nhóm hỗ trợ và hướng dẫn sử dụng</li>
-                    </ul>
-                    <a href="#register" class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Đăng ký ngay</a>
+                <div class="tag-switch">
+                    <span class="active-bg"><i class="fas fa-bolt"></i> Không nền thắng</span>
+                    <span><i class="fas fa-layer-group"></i> Có nền</span>
                 </div>
             </div>
-            
-            <div class="package-card">
-                <div class="package-header">
-                    <div style="background: var(--accent); color: var(--text-dark); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px;">PHỔ BIẾN NHẤT</div>
-                    <h3 class="package-name">VIETTEL PREMIUM</h3>
-                    <div class="package-price">50.000đ<span>/tháng</span></div>
-                    <p>Gói cao cấp cho người dùng chuyên nghiệp</p>
-                </div>
-                <div class="package-body">
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Dung lượng:Không giới hạn gb</li>
-                        <li><i class="fas fa-check"></i> Hỗ Trợ Tối Đa: 2 Thiết Bị</li>
-                        <li><i class="fas fa-check"></i> Hỗ Trợ Sim: Viettel</li>
-                        <li><i class="fas fa-check"></i> Thời gian sử dụng: 1 tháng</li>
-                        <li><i class="fas fa-check"></i> Chú ý: Mua gói xong ib qua Zalo admin để được thêm vào nhóm hỗ trợ và hướng dẫn sử dụng</li>
-                    </ul>
-                    <a href="#register" class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Đăng ký ngay</a>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-name">VIETTEL LIFETIME</h3>
-                    <div class="package-price">100.000đ<span>/Vĩnh Viễn</span></div>
-                    <p>Gói đặc biệt cho người dùng cao cấp</p>
-                </div>
-                <div class="package-body">
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Dung lượng: 800 GB</li>
-                        <li><i class="fas fa-check"></i> Hỗ Trợ Tối Đa: 2 Thiết Bị</li>
-                        <li><i class="fas fa-check"></i> Hỗ Trợ Sim: Viettel</li>
-                        <li><i class="fas fa-check"></i> Thời gian sử dụng: Vĩnh viễn</li>
-                        <li><i class="fas fa-check"></i> Chú ý: Mua gói xong ib qua Zalo admin để được thêm vào nhóm hỗ trợ và hướng dẫn sử dụng</li>
-                    </ul>
-                    <a href="#register" class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Đăng ký ngay</a>
-                </div>
+            <div class="hotline-note">
+                <i class="fas fa-headset"></i>
+                <span>Hỗ trợ 0đ • 100% an toàn</span>
             </div>
         </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-title">
-            <h2>Tại sao chọn Viettel?</h2>
-            <p>Những lý do hàng đầu để bạn lựa chọn dịch vụ của chúng tôi</p>
-        </div>
-        
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Tốc độ vượt trội</h3>
-                <p>Tốc độ tải xuống lên đến 150Mbps, đáp ứng mọi nhu cầu giải trí và làm việc</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <h3>Phủ sóng rộng</h3>
-                <p>Mạng lưới phủ sóng 99% dân số, kể cả vùng sâu vùng xa</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>Hỗ trợ 24/7</h3>
-                <p>Đội ngũ hỗ trợ khách hàng luôn sẵn sàng giúp đỡ bạn mọi lúc</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Bảo mật cao</h3>
-                <p>Công nghệ bảo mật tiên tiến, bảo vệ thông tin cá nhân của bạn</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta" id="register">
-        <div class="container">
-            <h2>Sẵn sàng trải nghiệm?</h2>
-            <p>Đăng ký ngay hôm nay để nhận ưu đãi đặc biệt lên đến 20% cho khách hàng mới</p>
-            <a href="#" class="btn btn-primary" style="background: white; color: var(--accent); border: 1px solid white;">Đăng ký ngay</a>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Về Viettel</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Tuyển dụng</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">CSR</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Dịch vụ</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Gói cước</a></li>
-                    <li><a href="#">Ưu đãi</a></li>
-                    <li><a href="#">Thanh toán</a></li>
-                    <li><a href="#">Hỗ trợ</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Liên hệ</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-phone-alt"></i> 033.406.3029</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> longngvanmmo@gmail.com</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Trung tâm hỗ trợ</a></li>
-                    <li><a href="#"><i class="fas fa-store"></i> Cửa hàng Viettel</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Theo dõi chúng tôi</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-                    <li><a href="#"><i class="fab fa-zalo"></i> Zalo</a></li>
-                    <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2023 Sky Luxury Media. Tất cả các quyền được bảo lưu.</p>
-        </div>
-    </footer>
 
-    <script>
-        // Cuộn mượt khi click vào menu
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 60,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+        <!-- bộ lọc ảo (chỉ để trang trí) -->
+        <div class="filter-row">
+            <div class="filter-chip active"><i class="fas fa-crown"></i> Tất cả gói</div>
+            <div class="filter-chip"><i class="fas fa-dice-d6"></i> Không nền</div>
+            <div class="filter-chip"><i class="fas fa-dice-d20"></i> Có nền (combo)</div>
+            <div class="filter-chip"><i class="fas fa-rocket"></i> 1.5K - 10K GB</div>
+        </div>
+
+        <!-- KHU VỰC GÓI KHÔNG NỀN (giống ảnh) -->
+        <div class="section-label">
+            <h3><i class="fas fa-ban"></i> GÓI KHÔNG NỀN · 0đ gốc</h3>
+            <div class="badge-new"><i class="fas fa-check-circle"></i> Fix lỗi noti, 3+ thiết bị</div>
+        </div>
+
+        <div class="plan-grid">
+            <!-- Gói 1 (bản gốc 3.000 GB / 45k) -->
+            <div class="plan-card">
+                <div class="card-badge-row">
+                    <span class="price-lg">45.000₫ <small>/tháng</small></span>
+                    <span class="nontag"><i class="fas fa-sim"></i> Viettel 0đ</span>
+                </div>
+                <div class="plan-name">
+                    SIÊU PHẲNG <span>không nền</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">3,000 GB</span></li>
+                    <li><i class="fas fa-shield-check"></i> An toàn sim 100%</li>
+                    <li><i class="fas fa-layer-group"></i> Không cần gói nền</li>
+                    <li><i class="fas fa-bell"></i> Fix lỗi mất thông báo</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Tốc độ tối đa 500Mbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 3 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app</li>
+                    <li><i class="fas fa-headset"></i> Hỗ trợ Viettel 0đ</li>
+                </ul>
+                <button class="btn-action"><i class="fas fa-cart-shopping"></i> Mua Gói Ngay</button>
+            </div>
+
+            <!-- Gói không nền thứ 2: 2.000 GB / 39k -->
+            <div class="plan-card">
+                <div class="card-badge-row">
+                    <span class="price-lg">39.000₫ <small>/tháng</small></span>
+                    <span class="nontag"><i class="fas fa-wifi"></i> nhẹ</span>
+                </div>
+                <div class="plan-name">
+                    CAO TỐC <span>2k GB</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">2,000 GB</span></li>
+                    <li><i class="fas fa-shield-check"></i> An toàn sim 100%</li>
+                    <li><i class="fas fa-layer-group"></i> Không cần gói nền</li>
+                    <li><i class="fas fa-bell"></i> Fix noti</li>
+                    <li><i class="fas fa-tachometer-alt"></i> 400 Mbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 3 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app</li>
+                    <li><i class="fas fa-headset"></i> Viettel 0đ</li>
+                </ul>
+                <button class="btn-action"><i class="fas fa-flash"></i> Mua Ngay</button>
+            </div>
+
+            <!-- Gói không nền 5.000 GB 79k -->
+            <div class="plan-card">
+                <div class="card-badge-row">
+                    <span class="price-lg">79.000₫ <small>/tháng</small></span>
+                    <span class="nontag"><i class="fas fa-crown"></i> VIP</span>
+                </div>
+                <div class="plan-name">
+                    MAX 5K <span>siêu nặng</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">5,000 GB</span></li>
+                    <li><i class="fas fa-shield-check"></i> An toàn 100%</li>
+                    <li><i class="fas fa-layer-group"></i> Không nền</li>
+                    <li><i class="fas fa-bell"></i> Fix lỗi mất thông báo</li>
+                    <li><i class="fas fa-tachometer-alt"></i> 1 Gbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 5 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app</li>
+                    <li><i class="fas fa-headset"></i> Viettel 0đ</li>
+                </ul>
+                <button class="btn-action"><i class="fas fa-star"></i> Mua Ngay</button>
+            </div>
+        </div> <!-- end không nền grid -->
+
+        <!-- KHU VỰC GÓI CÓ NỀN (thêm mới theo yêu cầu) -->
+        <div class="section-label" style="margin-top: 60px;">
+            <h3><i class="fas fa-fill-drip"></i> GÓI CÓ NỀN (kết hợp gói nền + data)</h3>
+            <div class="badge-new" style="background: #ffd966; color:#1d3b1d;"><i class="fas fa-gift"></i> Combo ưu đãi</div>
+        </div>
+
+        <div class="plan-grid">
+            <!-- Gói có nền 1: nền 10k + data 2.000 GB = 59k -->
+            <div class="plan-card bg-filled">
+                <div class="card-badge-row">
+                    <span class="price-lg">59.000₫ <small>/tháng</small></span>
+                    <span class="basetag"><i class="fas fa-layer-group"></i> CÓ NỀN</span>
+                </div>
+                <div class="plan-name">
+                    COMBO NHẸ <span>nền 10k</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">2,000 GB</span></li>
+                    <li><i class="fas fa-check-circle"></i> Bao gồm gói nền (10k)</li>
+                    <li><i class="fas fa-shield-check"></i> An toàn sim 100%</li>
+                    <li><i class="fas fa-bell"></i> Fix mất thông báo</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Tốc độ 400 Mbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 3 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app</li>
+                    <li><i class="fas fa-headset"></i> Hỗ trợ 24/7</li>
+                </ul>
+                <div class="base-note">
+                    <i class="fas fa-cube"></i> Gói nền: Vietell 10k/tháng (đã tính)
+                </div>
+                <button class="btn-action"><i class="fas fa-cart-plus"></i> Mua Combo</button>
+            </div>
+
+            <!-- Gói có nền 2: nền 20k + 4.000 GB = 99k -->
+            <div class="plan-card bg-filled">
+                <div class="card-badge-row">
+                    <span class="price-lg">99.000₫ <small>/tháng</small></span>
+                    <span class="basetag"><i class="fas fa-star"></i> NỀN 20K</span>
+                </div>
+                <div class="plan-name">
+                    COMBO PRO <span>nền 20k</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">4,000 GB</span></li>
+                    <li><i class="fas fa-check-circle"></i> Gói nền 20k + data 4k</li>
+                    <li><i class="fas fa-shield-check"></i> An toàn sim</li>
+                    <li><i class="fas fa-bell"></i> Fix noti</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Tốc độ 800 Mbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 4 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app</li>
+                    <li><i class="fas fa-headset"></i> Hỗ trợ ưu tiên</li>
+                </ul>
+                <div class="base-note">
+                    <i class="fas fa-cube"></i> Gói nền 20k (bao gồm call/sms)
+                </div>
+                <button class="btn-action"><i class="fas fa-gem"></i> Mua Ngay</button>
+            </div>
+
+            <!-- Gói có nền 3: nền 35k + 6.000 GB = 149k (cao cấp) -->
+            <div class="plan-card bg-filled">
+                <div class="card-badge-row">
+                    <span class="price-lg">149.000₫ <small>/tháng</small></span>
+                    <span class="basetag"><i class="fas fa-crown"></i> NỀN CAO</span>
+                </div>
+                <div class="plan-name">
+                    SIÊU COMBO <span>nền 35k</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">6,000 GB</span></li>
+                    <li><i class="fas fa-check-circle"></i> Gói nền 35k trọn gói</li>
+                    <li><i class="fas fa-shield-check"></i> Bảo vệ + VPN</li>
+                    <li><i class="fas fa-bell"></i> Fix noti tối ưu</li>
+                    <li><i class="fas fa-tachometer-alt"></i> 1 Gbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 5 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app</li>
+                    <li><i class="fas fa-headset"></i> Hỗ trợ 24/7</li>
+                </ul>
+                <div class="base-note">
+                    <i class="fas fa-diamond"></i> Gói nền 35k thoại + data gốc
+                </div>
+                <button class="btn-action"><i class="fas fa-crown"></i> Mua Siêu Combo</button>
+            </div>
+
+            <!-- Gói có nền 4: nền 50k + 8.000 GB = 199k (VIP) -->
+            <div class="plan-card bg-filled">
+                <div class="card-badge-row">
+                    <span class="price-lg">199.000₫ <small>/tháng</small></span>
+                    <span class="basetag"><i class="fas fa-infinity"></i> VIP NỀN</span>
+                </div>
+                <div class="plan-name">
+                    VIP KHỦNG <span>nền 50k</span>
+                </div>
+                <ul class="feature-list-compact">
+                    <li><i class="fas fa-database"></i> Data: <span class="data-highlight">8,000 GB</span></li>
+                    <li><i class="fas fa-check-circle"></i> Gói nền 50k (không giới hạn)</li>
+                    <li><i class="fas fa-shield-check"></i> An toàn tuyệt đối</li>
+                    <li><i class="fas fa-bell"></i> Fix noti ưu tiên</li>
+                    <li><i class="fas fa-tachometer-alt"></i> 1.2 Gbps</li>
+                    <li><i class="fas fa-tablet-alt"></i> 6 thiết bị</li>
+                    <li><i class="fas fa-globe"></i> Mọi app + rảnh tay</li>
+                    <li><i class="fas fa-headset"></i> CSKH riêng</li>
+                </ul>
+                <div class="base-note">
+                    <i class="fas fa-gem"></i> Bao gồm nền 50k + data siêu khủng
+                </div>
+                <button class="btn-action"><i class="fas fa-cart-shopping"></i> Mua VIP</button>
+            </div>
+        </div> <!-- end có nền grid -->
+
+        <!-- footer xịn với dòng nhấn mạnh 'thêm nhiều gói' -->
+        <div class="footer-message">
+            <span><i class="fas fa-check-circle" style="color:#88ffb0;"></i> <strong>CHIA THÀNH NHIỀU GÓI KHÁC NHAU:</strong> không nền (thuần data) & có nền (combo + gốc)</span>
+            <span style="display:flex; gap:10px;"><i class="fas fa-tags"></i> 12+ gói •  sim Viettel • 4G/5G</span>
+        </div>
+
+        <!-- dòng mô tả nhỏ nhấn mạnh việc thêm gói nền -->
+        <div style="text-align: center; margin-top: 20px; color: #a0ffd0; opacity:0.7; font-size:0.9rem;">
+            <i class="fas fa-plus-circle"></i> Đã bổ sung gói có nền (kèm gốc) theo yêu cầu
+        </div>
+    </div>
 </body>
 </html>
